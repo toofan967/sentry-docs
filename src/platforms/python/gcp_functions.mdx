@@ -39,13 +39,16 @@ If you are using another web framework inside of GCP Functions, the framework mi
 
 ### Enable Timeout Warning
 
-Timeout warning reports an issue when function execution time is about to expire. Update the sentry initialization to set ```timeout_warning``` to ```true```
+Timeout warning reports an issue when function execution time is about to
+expire. Update the sentry initialization to set `timeout_warning` to `true`:
+
 ```python
 sentry_sdk.init(
     dsn="___PUBLIC_DSN___",
     integrations=[GcpIntegration(timeout_warning=True)]
 )
 ```
+
 The timeout warning is sent only if the "timeout" in the GCP Funtion configuration is set to a value greater than one second.
 
 ## Behavior
